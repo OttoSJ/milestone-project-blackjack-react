@@ -4,10 +4,10 @@ class Cards extends Component {
   state = {
     values: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
     suits: ["Spades", "Diamonds", "Clubs", "Hearts"],
-    deck: ["deck"],
+    deck: [],
   };
-
   render() {
+    console.log(this.state.deck);
     return (
       <div>
         <button onClick={() => this.createDeck()} className="btn btn-primary">
