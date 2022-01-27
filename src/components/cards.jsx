@@ -1,51 +1,43 @@
 import React, { Component } from "react";
+import { createDeck } from "../fakebackend/fakecardsdatabase";
+import Dealer from "./dealer";
+import { values } from "../fakebackend/fakecardsdatabase";
+import { suits } from "../fakebackend/fakecardsdatabase";
+import { shuffleCards } from "../fakebackend/fakecardsdatabase";
+import Contestant from "../components/contestant";
 
 class Cards extends Component {
   state = {
-    values: ["A", "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K"],
-    suits: ["Spades", "Diamonds", "Clubs", "Hearts"],
     deck: [],
+    shuffledDeck: [],
+
+    // Move shuffledDeck to dealer component
+    // Firgure out how to make card value, suit and image all one card object in this component
   };
+
+  componentDidMount() {
+    this.setState({
+      deck: createDeck(values, suits),
+      shuffledDeck: shuffleCards(createDeck(values, suits)),
+    });
+  }
+
+  testing() {
+    const shuffledDeck = [...this.state.shuffledDeck];
+  }
+
   render() {
-    console.log(this.state.deck);
+    // console.log(this.state.deck);
+    // console.log(this.state.shuffledDeck);
+
     return (
       <div>
-        <button onClick={() => this.createDeck()} className="btn btn-primary">
-          createDeck
-        </button>
-        <button onClick={() => this.shuffleDeck()} className="btn btn-primary">
-          shuffledDeck
+        <button onClick={() => this.props.onDealtCard(this.state.shuffledDeck)}>
+          Deal
         </button>
       </div>
     );
   }
-
-  createDeck = () => {
-    const { values, suits } = this.state;
-    const deck = [];
-    for (let i = 0; i < suits.length; i++) {
-      for (let x = 0; x < values.length; x++) {
-        let card = { Value: values[x], Suit: suits[i] };
-        deck.push(card);
-      }
-    }
-    this.setState({ deck: deck });
-    console.log(this.state.deck);
-  };
-
-  shuffleDeck = () => {
-    const deck = [...this.state.deck];
-    for (let i = 0; i < 1000; i++) {
-      let location1 = Math.floor(Math.random() * deck.length);
-      let location2 = Math.floor(Math.random() * deck.length);
-      let tmp = deck[location1];
-
-      deck[location1] = deck[location2];
-
-      deck[location2] = tmp;
-    }
-    this.setState({ deck: deck });
-  };
 }
 
 export default Cards;

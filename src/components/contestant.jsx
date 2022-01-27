@@ -4,10 +4,9 @@ import Cards from "./cards";
 
 class Contestant extends Component {
   state = {
-    hand: [],
-    handTotal: [],
-    numberOfAces: [],
+    playersHand: [],
   };
+
   render() {
     return <div></div>;
   }
