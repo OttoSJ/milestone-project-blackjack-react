@@ -3,12 +3,12 @@ import React, { Component } from "react";
 import Cards from "./cards";
 
 class Contestant extends Component {
-  state = {
-    playersHand: [],
-  };
-
   render() {
-    return <div></div>;
+    return (
+      <div className="players-card-container">
+        {/* <div className="cards"></div> */}
+      </div>
+    );
   }
 }
 
