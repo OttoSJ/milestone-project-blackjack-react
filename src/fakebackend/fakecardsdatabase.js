@@ -86,10 +86,6 @@ export function createDeck(values, suits) {
   return deck;
 }
 
-export function getNextCard(cardDeck) {
-  cardDeck.shift();
-}
-
 export function shuffleCards(shuffledDeck) {
   for (let i = 0; i < 1000; i++) {
     let location1 = Math.floor(Math.random() * shuffledDeck.length);

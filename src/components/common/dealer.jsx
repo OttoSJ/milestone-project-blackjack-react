@@ -46,8 +46,8 @@ class Dealer extends Component {
   };
 
   render() {
-    // console.log(this.state.deck);
-    // console.log(this.state.playersHand);
+    console.log(this.state.deck);
+    console.log(this.state.playersHand);
 
     const { dealersHand, playersHand } = this.state;
     return (
