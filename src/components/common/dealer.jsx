@@ -4,6 +4,7 @@ import fakecardsdatabase, {
   cardDeck,
   cardImage,
 } from "../../fakebackend/fakecardsdatabase";
+import Contestant from "./playerOne";
 
 class Dealer extends Component {
   state = {
@@ -18,23 +19,35 @@ class Dealer extends Component {
   handleStartHand = () => {
     const newDeck = [...this.state.deck];
     // Watch react props video first *******************
-    const firstCard = newDeck.shift();
-    const secondCard = newDeck.shift();
-    const thirdCard = newDeck.shift();
-    const fourthCard = newDeck.shift();
+    const firstDealerCard = newDeck.shift();
+    const secondDealerCard = newDeck.shift();
+    const thirdPlayerCard = newDeck.shift();
+    const fourthPlayerCard = newDeck.shift();
 
     const revisedDeck = [...newDeck];
 
     this.setState({
-      dealersHand: [firstCard, secondCard],
-      playersHand: [thirdCard, fourthCard],
+      dealersHand: [firstDealerCard, secondDealerCard],
+      playersHand: [thirdPlayerCard, fourthPlayerCard],
       deck: revisedDeck,
     });
   };
 
+  handleNextPlayersCard = () => {
+    const newDeck = [...this.state.deck];
+    const nextPlayerCard = newDeck.shift();
+
+    const revisedDeck = [...newDeck];
+    this.setState({
+      playersHand: [...this.state.playersHand, nextPlayerCard],
+      deck: revisedDeck,
+    });
+    console.log(this.state.playersHand);
+  };
+
   render() {
     // console.log(this.state.deck);
-    // console.log(this.state.dealersHand);
+    // console.log(this.state.playersHand);
 
     const { dealersHand, playersHand } = this.state;
     return (
@@ -42,9 +55,10 @@ class Dealer extends Component {
         <div className="dealers-card-container">
           <div className="cards">
             <Cards
-              onDealtCard={this.handleStartHand}
-              onDealersCard={dealersHand}
-              // onPlayersCard={playersHand}
+              onFirstHand={this.handleStartHand}
+              onPlayersCard={this.handleNextPlayersCard}
+              dealersCard={dealersHand}
+              playersCard={playersHand}
             />
           </div>
         </div>
@@ -54,53 +68,28 @@ class Dealer extends Component {
 }
 export default Dealer;
 
-//
-
-// class Dealer extends Component {
-//   state = {
-//     deck: [],
-//     dealersHand: [],
-//     playersHand: [],
-//   };
-//   componentDidMount() {
-//     this.setState({ deck: cardDeck });
-//   }
-
-//   handleStartHand = () => {
-//     const newDeck = [...this.state.deck];
-//     // Watch react props video first *******************
-//     const firstCard = newDeck.shift();
-//     const secondCard = newDeck.shift();
-//     const thirdCard = newDeck.shift();
-//     const fourthCard = newDeck.shift();
-
-//     const revisedDeck = [...newDeck];
-
-//     this.setState({
-//       dealersHand: [firstCard, secondCard],
-//       playersHand: [thirdCard, fourthCard],
-//       deck: revisedDeck,
-//     });
-//   };
-
+// // class Dealer extends Component {
 //   render() {
 //     // console.log(this.state.deck);
 //     // console.log(this.state.dealersHand);
 
-//     const { dealersHand, playersHand } = this.state;
+//     const { onDealtCard } = this.props;
+
 //     return (
 //       <React.Fragment>
-//         <div className="dealers-card-container">
-//           <div className="cards">
-//             <Cards
-//               onDealtCard={this.handleStartHand}
-//               onDealersCard={dealersHand}
-//               // onPlayersCard={playersHand}
-//             />
-//           </div>
+//         <div>
+//           <button
+//             className="dealer-button"
+//             onClick={() => onDealtCard}
+//             // disabled={props.onDealersCard.length === 0 ? false : true}
+//           >
+//             Deal
+//           </button>
 //         </div>
 //       </React.Fragment>
 //     );
 //   }
 // }
 // export default Dealer;
+
+//

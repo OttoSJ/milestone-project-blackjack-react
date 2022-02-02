@@ -1,7 +1,7 @@
 import "./App.css";
 import Board from "./components/board";
 import Cards from "./components/common/cards";
-import Contestant from "./components/common/contestant";
+import Contestant from "./components/common/playerOne";
 import Dealer from "./components/common/dealer";
 
 function App() {

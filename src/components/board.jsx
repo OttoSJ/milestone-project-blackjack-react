@@ -6,7 +6,7 @@ import { createDeck } from "../fakebackend/fakecardsdatabase";
 import { values } from "../fakebackend/fakecardsdatabase";
 import { suits } from "../fakebackend/fakecardsdatabase";
 import { shuffleCards } from "../fakebackend/fakecardsdatabase";
-import Contestant from "../components/common/contestant";
+import Contestant from "./common/playerOne";
 
 class Board extends Component {
   state = {
@@ -28,6 +28,7 @@ class Board extends Component {
     return (
       <div className="board-layout-main-container">
         <div className="card-layout-container"></div>
+        {/* <Cards /> */}
         <Dealer />
         <Contestant />
       </div>

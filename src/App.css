@@ -23,7 +23,8 @@
   align-items: center;
   width: 70%;
   height: 30%;
-  border: 5px solid rgb(11, 50, 11);
+  margin-bottom: 2rem;
+  /* border: 5px solid rgb(11, 50, 11); */
 }
 
 .players-card-container {
@@ -34,14 +35,15 @@
   width: 70%;
   height: 30%;
   margin-top: 1rem;
-  border: 5px solid rgb(11, 50, 11);
+  border: 5px solid rgb(138, 154, 138);
 }
 
 .card-layout-container {
   width: 80%;
   height: 30%;
 }
-*/ .cards {
+
+.cards {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -55,4 +57,18 @@
   position: absolute;
   bottom: 0;
   left: 18rem;
+}
+
+.player-button {
+  position: absolute;
+  top: 0;
+  left: 18rem;
+}
+
+.dealer,
+.player {
+  margin-bottom: 2rem;
+  /* height: 35%;
+  width: 100%;
+  border: 5px solid rgb(11, 50, 11); */
 }
