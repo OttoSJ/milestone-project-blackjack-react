@@ -3,6 +3,7 @@ import Dealer from "./dealer";
 import { shuffleCards } from "../../fakebackend/cardsdatabase";
 import PlayerOne from "./playerOne";
 import { cardDeck } from "../../fakebackend/cardsdatabase";
+import { StyledCardContainer } from "../styles/cardcontainer.style";
 
 class Board extends Component {
   state = {
@@ -50,22 +51,22 @@ class Board extends Component {
     const { dealersHand, playersHand } = this.state;
     return (
       <div className="board-layout-main-container">
-        <div className="dealers-card-container">
+        <StyledCardContainer>
           <div className="cards">
             <Dealer
               dealersHand={dealersHand}
               onStartHand={this.handleStartHand}
             />
           </div>
-        </div>
-        <div className="players-card-container">
+        </StyledCardContainer>
+        <StyledCardContainer>
           <div className="cards">
             <PlayerOne
               playersHand={playersHand}
               onPlayersCard={this.handlePlayersCard}
             />
           </div>
-        </div>
+        </StyledCardContainer>
       </div>
     );
   }

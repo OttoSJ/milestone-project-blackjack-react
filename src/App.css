@@ -16,44 +16,6 @@
   height: 90vh;
 }
 
-.dealers-card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-  height: 25%;
-  margin-left: 0.5rem;
-  border: 5px solid rgb(11, 50, 11);
-}
-
-.players-card-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 70%;
-  height: 25%;
-  margin-left: 0.5rem;
-  margin-top: 1rem;
-  border: 5px solid rgb(11, 50, 11);
-}
-
-/* .card-layout-container {
-  width: 80%;
-  height: 30%;
-} */
-
-.cards {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 50%;
-  margin-left: 4rem;
-  /* border: 1px solid grey; */
-}
-
 .dealer-button {
   position: absolute;
   bottom: 0;
