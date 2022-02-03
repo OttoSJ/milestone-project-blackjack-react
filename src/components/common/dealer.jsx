@@ -7,6 +7,13 @@ class Dealer extends Component {
     return (
       <React.Fragment>
         <Cards contestantsHand={dealersHand} />
+        <button
+          className="dealer-button"
+          onClick={() => this.props.onStartHand()}
+          disabled={this.props.dealersHand.length === 0 ? false : true}
+        >
+          Start
+        </button>
       </React.Fragment>
     );
   }

@@ -1,16 +1,8 @@
 import React, { Component } from "react";
 import Dealer from "./dealer";
-import Cards from "./cards";
-
-import { createDeck } from "../../fakebackend/fakecardsdatabase";
-import { values } from "../../fakebackend/fakecardsdatabase";
-import { suits } from "../../fakebackend/fakecardsdatabase";
-import { shuffleCards } from "../../fakebackend/fakecardsdatabase";
+import { shuffleCards } from "../../fakebackend/cardsdatabase";
 import PlayerOne from "./playerOne";
-import fakecardsdatabase, {
-  cardDeck,
-  cardImage,
-} from "../../fakebackend/fakecardsdatabase";
+import { cardDeck } from "../../fakebackend/cardsdatabase";
 
 class Board extends Component {
   state = {
@@ -54,21 +46,17 @@ class Board extends Component {
   };
 
   render() {
-    console.log(this.state.deck);
+    // console.log(this.state.deck);
     const { dealersHand, playersHand } = this.state;
     return (
       <div className="board-layout-main-container">
         <div className="dealers-card-container">
           <div className="cards">
-            <Dealer dealersHand={dealersHand} />
+            <Dealer
+              dealersHand={dealersHand}
+              onStartHand={this.handleStartHand}
+            />
           </div>
-          <button
-            className="dealer-button"
-            onClick={() => this.handleStartHand()}
-            disabled={this.state.dealersHand.length === 0 ? false : true}
-          >
-            Start
-          </button>
         </div>
         <div className="players-card-container">
           <div className="cards">
