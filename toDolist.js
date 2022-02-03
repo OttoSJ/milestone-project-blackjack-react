@@ -1,5 +1,7 @@
 // TO DO LIST
 
+// Add pointer hand to all buttons (style= {{cusor: "pointer"}}. Better to make this a class in css and just add the class to any clickable icons. I can just make a class called .clickable {cusor: "pointer"})
+
 // Add cardNumVal to each card to eleminate getFaceCardValue function
 
 // Refractor checkTotalHandValue to add cardNumVal (total + element.cardNumVal)
@@ -10,4 +12,10 @@
 
 // Figure out how to create a new deck on the fly one the deck is less then 4
 
-// Create styled components that takes the place of dealers-card-container, players-card-container and cards in the board component. I may be able to nest the card style inside the dealer and player container. See YouTube video here https://www.youtube.com/watch?v=02zO0hZmwnw&list=PLzwXI90aoBig_XBL5EZ-1N-gUX5Bzzt4D&index=14&t=1180s
+// Render back of deck onto the dealers container. In the future I can make it an option to show the back of a blue or red deck.
+
+// FUTURE FEATURES AND OPTIONS *************************************
+
+// Give user the option to show red or blue deck for the dealer
+
+// Give user the choice of how many decks they play with (4, 6, 8).

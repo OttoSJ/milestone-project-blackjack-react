@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import Cards from "./cards";
 
 class Dealer extends Component {
+  state = {};
+
   render() {
     const { dealersHand } = this.props;
     return (
