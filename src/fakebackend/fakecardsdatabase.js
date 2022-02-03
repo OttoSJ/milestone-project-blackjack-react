@@ -1,21 +1,3 @@
-export const values = [
-  "A",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10",
-  "J",
-  "Q",
-  "K",
-];
-
-export const suits = ["spades", "diamonds", "clubs", "hearts"];
-
 export const cardDeck = [
   { value: "A", suit: "spades", cardImage: "../cardImages/spades-A.png" },
   { value: "2", suit: "spades", cardImage: "../cardImages/spades-2.png" },
@@ -71,21 +53,6 @@ export const cardDeck = [
   { value: "K", suit: "hearts", cardImage: "../cardImages/hearts-K.png" },
 ];
 
-export function createDeck(values, suits) {
-  const deck = [];
-
-  for (let i = 0; i < suits.length; i++) {
-    for (let x = 0; x < values.length; x++) {
-      let card = {
-        value: values[x],
-        suit: suits[i],
-      };
-      deck.push(card);
-    }
-  }
-  return deck;
-}
-
 export function shuffleCards(shuffledDeck) {
   for (let i = 0; i < 1000; i++) {
     let location1 = Math.floor(Math.random() * shuffledDeck.length);
@@ -99,4 +66,39 @@ export function shuffleCards(shuffledDeck) {
   return shuffledDeck;
 }
 
-// console.log(cardDeck);
+// NOT IN USE CURRENTLY ************
+//
+// export function createDeck(values, suits) {
+//   const deck = [];
+
+//   for (let i = 0; i < suits.length; i++) {
+//     for (let x = 0; x < values.length; x++) {
+//       let card = {
+//         value: values[x],
+//         suit: suits[i],
+//       };
+//       deck.push(card);
+//     }
+//   }
+//   return deck;
+// }
+
+//
+
+// export const values = [
+//   "A",
+//   "2",
+//   "3",
+//   "4",
+//   "5",
+//   "6",
+//   "7",
+//   "8",
+//   "9",
+//   "10",
+//   "J",
+//   "Q",
+//   "K",
+// ];
+
+// export const suits = ["spades", "diamonds", "clubs", "hearts"];

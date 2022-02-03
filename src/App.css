@@ -22,9 +22,9 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 30%;
-  margin-bottom: 2rem;
-  /* border: 5px solid rgb(11, 50, 11); */
+  height: 25%;
+  margin-left: 0.5rem;
+  border: 5px solid rgb(11, 50, 11);
 }
 
 .players-card-container {
@@ -33,15 +33,16 @@
   justify-content: center;
   align-items: center;
   width: 70%;
-  height: 30%;
+  height: 25%;
+  margin-left: 0.5rem;
   margin-top: 1rem;
-  border: 5px solid rgb(138, 154, 138);
+  border: 5px solid rgb(11, 50, 11);
 }
 
-.card-layout-container {
+/* .card-layout-container {
   width: 80%;
   height: 30%;
-}
+} */
 
 .cards {
   display: flex;
@@ -56,19 +57,14 @@
 .dealer-button {
   position: absolute;
   bottom: 0;
-  left: 18rem;
+  width: 4rem;
+
+  left: 17rem;
 }
 
 .player-button {
+  width: 4rem;
   position: absolute;
-  top: 0;
-  left: 18rem;
-}
-
-.dealer,
-.player {
-  margin-bottom: 2rem;
-  /* height: 35%;
-  width: 100%;
-  border: 5px solid rgb(11, 50, 11); */
+  top: 12;
+  left: 17rem;
 }
