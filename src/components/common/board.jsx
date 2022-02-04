@@ -1,15 +1,22 @@
 import React, { Component } from "react";
 import Dealer from "./dealer";
-import { shuffleCards } from "../../fakebackend/cardsdatabase";
 import PlayerOne from "./playerOne";
 import { cardDeck } from "../../fakebackend/cardsdatabase";
 import { StyledCardContainer } from "../styles/cardcontainer.style";
+import {
+  gamePlayed,
+  getHandTotal,
+  shuffleCards,
+} from "../../utils/gameUtilityFunc";
 
 class Board extends Component {
   state = {
     deck: [],
     dealersHand: [],
+    dealersHandTotal: 0,
     playersHand: [],
+    playersHandTotal: 0,
+    numberOfGamesPlayed: 0,
   };
 
   componentDidMount() {
@@ -20,19 +27,33 @@ class Board extends Component {
 
   handleStartHand = () => {
     const newDeck = [...this.state.deck];
+    let numberOfGamesPlayed = [this.state.numberOfGamesPlayed];
 
     const firstDealerCard = newDeck.shift();
     const secondDealerCard = newDeck.shift();
+    const dealersHand = [firstDealerCard, secondDealerCard];
+    const dealersHandTotal = getHandTotal(dealersHand);
+
     const thirdPlayerCard = newDeck.shift();
     const fourthPlayerCard = newDeck.shift();
+    const playersHand = [thirdPlayerCard, fourthPlayerCard];
+    const playersHandTotal = getHandTotal(playersHand);
+
+    numberOfGamesPlayed++;
+    let oneGame = numberOfGamesPlayed;
 
     const revisedDeck = [...newDeck];
 
     this.setState({
       dealersHand: [firstDealerCard, secondDealerCard],
       playersHand: [thirdPlayerCard, fourthPlayerCard],
+      playerHandTotal: playersHandTotal,
+      dealersHandTotal: dealersHandTotal,
+      numberOfGamesPlayed: oneGame,
       deck: revisedDeck,
     });
+    console.log(dealersHandTotal);
+    console.log(playersHandTotal);
   };
 
   handlePlayersCard = () => {
@@ -47,7 +68,7 @@ class Board extends Component {
   };
 
   render() {
-    // console.log(this.state.deck);
+    console.log(this.state.numberOfGamesPlayed);
     const { dealersHand, playersHand } = this.state;
     return (
       <div className="board-layout-main-container">

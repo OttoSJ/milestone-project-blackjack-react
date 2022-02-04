@@ -30,3 +30,7 @@
   top: 12;
   left: 17rem;
 }
+
+.clickable {
+  cursor: pointer;
+}

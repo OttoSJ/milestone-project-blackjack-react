@@ -11,7 +11,7 @@ class PlayerOne extends Component {
       <React.Fragment>
         <Cards contestantsHand={playersHand} />
         <button
-          className="player-button"
+          className="player-button cursor"
           onClick={() => this.props.onPlayersCard()}
           disabled={this.props.playersHand.length === 0 ? true : false}
         >
@@ -23,4 +23,4 @@ class PlayerOne extends Component {
 }
 
 export default PlayerOne;
-// Keep in mind that the button can handle more then one function. Also I can probably put use the state here to push data via props (function) back up to the board and mutate the state there from here.
+// Keep in mind that the button can handle more then one function. Also I can probably use the state here to push data via props (function) back up to the board and mutate the state there from here.

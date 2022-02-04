@@ -10,7 +10,7 @@ class Dealer extends Component {
       <React.Fragment>
         <Cards contestantsHand={dealersHand} />
         <button
-          className="dealer-button"
+          className="dealer-button cursor"
           onClick={() => this.props.onStartHand()}
           disabled={this.props.dealersHand.length === 0 ? false : true}
         >
