@@ -20,3 +20,15 @@ export const StyledCardContainer = styled.div`
     margin-left: 4rem;
   }
 `;
+
+export const StyledMsgContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 70%;
+  height: 25%;
+  margin-left: 0.5rem;
+  margin-top: 1rem;
+  // border: 5px solid rgb(11, 50, 11);
+`;
