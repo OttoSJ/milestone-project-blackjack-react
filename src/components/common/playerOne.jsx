@@ -10,8 +10,17 @@ class PlayerOne extends Component {
     return (
       <React.Fragment>
         <Cards contestantsHand={playersHand} />
+
         <button
-          className="player-button cursor"
+          className="hold-button
+           cursor"
+          onClick={null}
+          disabled={this.props.playersHand.length === 0 ? true : false}
+        >
+          Hold
+        </button>
+        <button
+          className="hit-me-button cursor"
           onClick={() => this.props.onPlayersCard()}
           disabled={this.props.playersHand.length === 0 ? true : false}
         >

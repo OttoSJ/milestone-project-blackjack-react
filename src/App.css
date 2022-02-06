@@ -24,10 +24,16 @@
   left: 17rem;
 }
 
-.player-button {
+.hit-me-button {
   width: 4rem;
   position: absolute;
-  top: 12;
+  top: 32rem;
+  left: 17rem;
+}
+.hold-button {
+  width: 4rem;
+  position: absolute;
+  top: 28.5rem;
   left: 17rem;
 }
 

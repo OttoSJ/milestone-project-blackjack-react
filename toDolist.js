@@ -1,6 +1,7 @@
 // TO DO LIST
 
-// Create hold button and function that will fire
+// Finish writing function for hit me button. Things to do still.. count aces and add it to the state numberOfGamesPlayed
+// Write hold button function.
 
 // Figure out how to create a new deck on the fly one the deck is less then 4
 

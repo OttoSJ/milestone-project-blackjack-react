@@ -25,10 +25,11 @@ export const StyledMsgContainer = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
+  align-items: flex-start;
   width: 70%;
   height: 25%;
   margin-left: 0.5rem;
   margin-top: 1rem;
+  color: white;
   // border: 5px solid rgb(11, 50, 11);
 `;

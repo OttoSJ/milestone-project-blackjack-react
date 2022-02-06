@@ -6,7 +6,7 @@ import { cardDeck } from "../../fakebackend/cardsdatabase";
 import {
   StyledCardContainer,
   StyledMsgContainer,
-} from "../styles/cardcontainer.style";
+} from "../styles/styledcomponents";
 import { getHandTotal, shuffleCards } from "../../utils/gameUtilityFunc";
 
 class Board extends Component {
@@ -62,15 +62,19 @@ class Board extends Component {
     // displayScore()
   };
 
-  handlePlayersCard = () => {
+  handlePlayersNextCard = () => {
     const newDeck = [...this.state.deck];
     const nextPlayerCard = newDeck.shift();
+    const playersHand = [...this.state.playersHand, nextPlayerCard];
+    const playersHandTotal = getHandTotal(playersHand);
 
     const revisedDeck = [...newDeck];
     this.setState({
       playersHand: [...this.state.playersHand, nextPlayerCard],
       deck: revisedDeck,
+      playersHandTotal: playersHandTotal,
     });
+    console.log(playersHandTotal);
   };
 
   render() {
@@ -97,7 +101,7 @@ class Board extends Component {
           <div className="cards">
             <PlayerOne
               playersHand={playersHand}
-              onPlayersCard={this.handlePlayersCard}
+              onPlayersCard={this.handlePlayersNextCard}
             />
           </div>
         </StyledCardContainer>

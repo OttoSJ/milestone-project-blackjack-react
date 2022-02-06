@@ -1,26 +1,24 @@
 import React, { Component } from "react";
-// import Board from "./board";
 
 class Messeges extends Component {
   state = {};
   render() {
     const { playersHandTotal, dealersHandTotal } = this.props;
-    console.log(dealersHandTotal);
-    console.log(playersHandTotal);
+    const messeges = [
+      `Dealers's Score ${dealersHandTotal}`,
+      `Player's Score ${playersHandTotal}`,
+    ];
+
     return (
       <div>
-        <span>
-          <p>Dealer's Score {dealersHandTotal}</p>
-        </span>
-        <span>
-          <p>Wins!</p>
-        </span>
-        <span>
-          <p>Player's Score {playersHandTotal} </p>
-        </span>
+        {messeges.map((messege) => (
+          <span key={messege}>
+            <p>{messege}</p>
+          </span>
+        ))}
       </div>
     );
   }
 }
-
+// Place the totals into an array and use the map method to render the results
 export default Messeges;

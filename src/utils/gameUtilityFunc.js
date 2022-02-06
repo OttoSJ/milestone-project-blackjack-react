@@ -3,7 +3,7 @@
 
 export function getHandTotal(contestantsHand) {
   function findNumberOfAces(contestantsHand) {
-    let aces = contestantsHand.filter((card) => card.cardValue === 1);
+    let aces = contestantsHand.filter((card) => card.cardValue === 11);
 
     return aces.length;
   }
@@ -18,7 +18,7 @@ export function getHandTotal(contestantsHand) {
   }
 
   let numberOfAces = findNumberOfAces(contestantsHand);
-
+  console.log(numberOfAces);
   let handTotal = checkTotalHandValue(contestantsHand);
 
   function adjustForAces(handTotal, numberOfAces, contestantsHand) {
