@@ -5,7 +5,7 @@ class PlayerOne extends Component {
   state = {};
 
   render() {
-    const { playersHand } = this.props;
+    const { playersHand, onPlayersCard, onHold } = this.props;
 
     return (
       <React.Fragment>
@@ -14,14 +14,14 @@ class PlayerOne extends Component {
         <button
           className="hold-button
            cursor"
-          onClick={null}
+          onClick={() => onHold()}
           disabled={this.props.playersHand.length === 0 ? true : false}
         >
           Hold
         </button>
         <button
           className="hit-me-button cursor"
-          onClick={() => this.props.onPlayersCard()}
+          onClick={() => onPlayersCard()}
           disabled={this.props.playersHand.length === 0 ? true : false}
         >
           Hit Me

@@ -7,7 +7,11 @@ import {
   StyledCardContainer,
   StyledMsgContainer,
 } from "../styles/styledcomponents";
-import { getHandTotal, shuffleCards } from "../../utils/gameUtilityFunc";
+import { getHandTotal, shuffleCards } from "../../utils/cardUtilityFunc";
+import {
+  checkForWinnerMessege,
+  handleDealersPlay,
+} from "../../utils/messegeUtilityFunc";
 
 class Board extends Component {
   state = {
@@ -77,10 +81,47 @@ class Board extends Component {
     console.log(playersHandTotal);
   };
 
+  handleDealersNextCard = () => {
+    const newDeck = [...this.state.deck];
+    const nextDealerCard = newDeck.shift();
+    const dealersHand = [...this.state.dealersHand, nextDealerCard];
+    const dealersHandTotal = getHandTotal(dealersHand);
+
+    const revisedDeck = [...newDeck];
+    this.setState({
+      dealersHand: [...this.state.dealersHand, nextDealerCard],
+      deck: revisedDeck,
+      dealersHandTotal: dealersHandTotal,
+    });
+    // I need to invoke the handleHold() here
+    console.log(dealersHandTotal);
+  };
+
+  handleHold = (handleDealersNextCard) => {
+    const { dealersHandTotal, playersHandTotal } = this.state;
+    handleDealersPlay(
+      handleDealersNextCard,
+      dealersHandTotal,
+      playersHandTotal
+    );
+    if (dealersHandTotal < playersHandTotal) {
+      return console.log("hold clicked");
+    }
+  };
+
+  // handleDealersPlay = (handleDealersNextCard) => {
+  //   const { dealersHandTotal, playersHandTotal } = this.state;
+
+  //   if (dealersHandTotal < playersHandTotal) {
+  //     return handleDealersNextCard();
+  //   } else return checkForWinnerMessege();
+  // };
+
   render() {
     console.log(this.state.numberOfGamesPlayed);
-    const { dealersHand, playersHand } = this.state;
-    const { dealersHandTotal, playersHandTotal } = this.state;
+    const { dealersHand, playersHand, dealersHandTotal, playersHandTotal } =
+      this.state;
+
     return (
       <div className="board-layout-main-container">
         <StyledMsgContainer>
@@ -102,6 +143,7 @@ class Board extends Component {
             <PlayerOne
               playersHand={playersHand}
               onPlayersCard={this.handlePlayersNextCard}
+              onHold={this.handleHold}
             />
           </div>
         </StyledCardContainer>
