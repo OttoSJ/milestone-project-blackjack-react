@@ -1,5 +1,7 @@
 // TO DO LIST
 
+// Work on navbar links and hamberger menu.
+
 // Finish writing function for hit me button. Things to do still.. count aces and add it to the state numberOfGamesPlayed
 // Write hold button function.
 

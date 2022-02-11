@@ -12,6 +12,7 @@ import {
   checkForWinnerMessege,
   handleDealersPlay,
 } from "../../utils/messegeUtilityFunc";
+import Navbar from "./navbar";
 
 class Board extends Component {
   state = {
@@ -78,7 +79,7 @@ class Board extends Component {
       deck: revisedDeck,
       playersHandTotal: playersHandTotal,
     });
-    console.log(playersHandTotal);
+    // console.log("Player has ", playersHandTotal);
   };
 
   handleDealersNextCard = () => {
@@ -86,36 +87,22 @@ class Board extends Component {
     const nextDealerCard = newDeck.shift();
     const dealersHand = [...this.state.dealersHand, nextDealerCard];
     const dealersHandTotal = getHandTotal(dealersHand);
+    const playersHand = this.state.playersHandTotal;
 
     const revisedDeck = [...newDeck];
+
     this.setState({
       dealersHand: [...this.state.dealersHand, nextDealerCard],
       deck: revisedDeck,
       dealersHandTotal: dealersHandTotal,
     });
-    // I need to invoke the handleHold() here
-    console.log(dealersHandTotal);
+
+    this.state.dealersHandTotal > this.state.playersHandTotal
+      ? console.log("Dealer lost ", this.state.dealersHandTotal)
+      : console.log("Player won ", this.state.playersHandTotal);
+
+    this.handleDealersNextCard();
   };
-
-  handleHold = (handleDealersNextCard) => {
-    const { dealersHandTotal, playersHandTotal } = this.state;
-    handleDealersPlay(
-      handleDealersNextCard,
-      dealersHandTotal,
-      playersHandTotal
-    );
-    if (dealersHandTotal < playersHandTotal) {
-      return console.log("hold clicked");
-    }
-  };
-
-  // handleDealersPlay = (handleDealersNextCard) => {
-  //   const { dealersHandTotal, playersHandTotal } = this.state;
-
-  //   if (dealersHandTotal < playersHandTotal) {
-  //     return handleDealersNextCard();
-  //   } else return checkForWinnerMessege();
-  // };
 
   render() {
     console.log(this.state.numberOfGamesPlayed);
@@ -123,31 +110,34 @@ class Board extends Component {
       this.state;
 
     return (
-      <div className="board-layout-main-container">
-        <StyledMsgContainer>
-          <Messeges
-            playersHandTotal={playersHandTotal}
-            dealersHandTotal={dealersHandTotal}
-          />
-        </StyledMsgContainer>
-        <StyledCardContainer>
-          <div className="cards">
-            <Dealer
-              dealersHand={dealersHand}
-              onStartHand={this.handleStartHand}
+      <React.Fragment>
+        <Navbar />
+        <div className="board-layout-main-container">
+          <StyledMsgContainer>
+            <Messeges
+              playersHandTotal={playersHandTotal}
+              dealersHandTotal={dealersHandTotal}
             />
-          </div>
-        </StyledCardContainer>
-        <StyledCardContainer>
-          <div className="cards">
-            <PlayerOne
-              playersHand={playersHand}
-              onPlayersCard={this.handlePlayersNextCard}
-              onHold={this.handleHold}
-            />
-          </div>
-        </StyledCardContainer>
-      </div>
+          </StyledMsgContainer>
+          <StyledCardContainer>
+            <div className="cards">
+              <Dealer
+                dealersHand={dealersHand}
+                onStartHand={this.handleStartHand}
+              />
+            </div>
+          </StyledCardContainer>
+          <StyledCardContainer>
+            <div className="cards">
+              <PlayerOne
+                playersHand={playersHand}
+                onPlayersCard={this.handlePlayersNextCard}
+                onHold={this.handleDealersNextCard}
+              />
+            </div>
+          </StyledCardContainer>
+        </div>
+      </React.Fragment>
     );
   }
 }

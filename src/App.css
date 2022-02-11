@@ -40,3 +40,8 @@
 .clickable {
   cursor: pointer;
 }
+
+.navbar {
+  background-color: rgb(20, 34, 20);
+  color: white;
+}
